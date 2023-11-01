@@ -49,6 +49,8 @@ public class NavAgent : MonoBehaviour
 
     }
 
+
+
     private bool PlayerInRange()
     {
         if (player != null)
@@ -62,21 +64,25 @@ public class NavAgent : MonoBehaviour
 
     private bool IsPlayerInFront()
     {
+        
         if (player != null)
         {
             Vector3 directionToPlayer = player.position - transform.position;
-            //directionToPlayer.y = 0f;
+            directionToPlayer.y = 0f;
             float angleToPlayer = Vector3.Angle(transform.forward, directionToPlayer);
-
-            if (angleToPlayer <= 45f * 0.5f)
+            if (angleToPlayer <= 45f)
             {
-                directionToPlayer.Normalize();
-                Debug.Log("Angle determination");
                 RaycastHit hit;
-                if (Physics.Raycast(transform.position, directionToPlayer, out hit, DetRange, obstacleLayer))
+                Debug.DrawRay(transform.position, directionToPlayer, Color.green);
+                if (Physics.Raycast(transform.position, directionToPlayer, out hit, DetRange))
                 {
+                    if (hit.collider.CompareTag("Ground"))
+                    {
+                        return false;
+                    }
+                    
                     Debug.Log("Raycast");
-                    if (!hit.collider.CompareTag("Player"))
+                    if (hit.collider.CompareTag("Player"))
                     {
                         Debug.Log("Player tag hit");
                         return true;
