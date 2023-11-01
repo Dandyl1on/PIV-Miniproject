@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 58
+  controlID: 101
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -96,8 +96,8 @@ MonoBehaviour:
     y: 0
     width: 221.6
     height: 483.2
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ProjectBrowser
+  m_Name: ConsoleWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -122,14 +122,14 @@ MonoBehaviour:
     y: 483.2
     width: 1205.6
     height: 239.59998
-  m_MinSize: {x: 231, y: 271}
-  m_MaxSize: {x: 10001, y: 10021}
-  m_ActualView: {fileID: 14}
+  m_MinSize: {x: 101, y: 121}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 14}
   - {fileID: 19}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 59
+  controlID: 45
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -391,7 +391,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Scripts
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -399,16 +399,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets
+  - Assets/Scripts
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: C:\Users\marku\OneDrive - Aalborg Universitet\Githubs\fps shooter
+  m_LastProjectPath: C:\Users\marku\UnityProjects\PIV-Miniproject
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 2e760000
-    m_LastClickedID: 30254
-    m_ExpandedIDs: 000000002e76000030760000327600003476000036760000387600003a7600003c7600003e76000040760000427600004476000000ca9a3b
+    m_SelectedIDs: 76760000
+    m_LastClickedID: 30326
+    m_ExpandedIDs: 0000000040760000427600004476000046760000487600004a7600004c7600004e7600005076000052760000547600005676000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -436,7 +436,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000002e76000030760000327600003476000036760000387600003a7600003c7600003e760000407600004276000044760000
+    m_ExpandedIDs: 0000000040760000427600004476000046760000487600004a7600004c7600004e76000050760000527600005476000056760000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -461,9 +461,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: fc710000
+    m_LastClickedInstanceID: 29180
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -576,9 +576,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 0cfbffff
+      m_SelectedIDs: 0afbffff
+      m_LastClickedID: -1270
+      m_ExpandedIDs: 0afbffff0cfbffff30730000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -971,9 +971,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -20.488285, y: 2.7442126, z: 10.851095}
+    m_Target: {x: -19.267855, y: 1.9142334, z: -11.778258}
     speed: 2
-    m_Value: {x: -20.488285, y: 2.7442126, z: 10.851095}
+    m_Value: {x: -19.267855, y: 1.9142334, z: -11.778258}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1019,13 +1019,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.031844895, y: -0.7570604, z: 0.03670849, w: -0.6516374}
+    m_Target: {x: -0.17771046, y: -0.25709423, z: 0.047963228, w: -0.9487675}
     speed: 2
-    m_Value: {x: -0.031842772, y: -0.75701, z: 0.03670604, w: -0.651594}
+    m_Value: {x: -0.17769815, y: -0.25707644, z: 0.047959905, w: -0.9487018}
   m_Size:
-    m_Target: 3.5892153
+    m_Target: 5.1042256
     speed: 2
-    m_Value: 3.5892153
+    m_Value: 5.1042256
   m_Ortho:
     m_Target: 0
     speed: 2

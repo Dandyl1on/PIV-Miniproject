@@ -13,6 +13,7 @@ public class NavAgent : MonoBehaviour
     public Material Detected;
     public Material NotDetected;
     public bool Canwalk;
+    public LayerMask obstacleLayer;
    
     // Start is called before the first frame update
     void Start()
@@ -28,6 +29,7 @@ public class NavAgent : MonoBehaviour
         if (IsPlayerInFront() && PlayerInRange())
         {
             ChasePlayer();
+            Debug.Log("Chase");
         }
         else if (Canwalk && !navMeshAgent.pathPending && navMeshAgent.remainingDistance < 0.5f)
         {
@@ -51,6 +53,7 @@ public class NavAgent : MonoBehaviour
     {
         if (player != null)
         {
+            Debug.Log("PlayerInRange");
             float DisToPlayer = Vector3.Distance(transform.position, player.position);
             return DisToPlayer <= DetRange;
         }
@@ -62,12 +65,23 @@ public class NavAgent : MonoBehaviour
         if (player != null)
         {
             Vector3 directionToPlayer = player.position - transform.position;
-            directionToPlayer.y = 0f;
+            //directionToPlayer.y = 0f;
             float angleToPlayer = Vector3.Angle(transform.forward, directionToPlayer);
 
-            if (angleToPlayer < 45f)
+            if (angleToPlayer <= 45f * 0.5f)
             {
-                return true;
+                directionToPlayer.Normalize();
+                Debug.Log("Angle determination");
+                RaycastHit hit;
+                if (Physics.Raycast(transform.position, directionToPlayer, out hit, DetRange, obstacleLayer))
+                {
+                    Debug.Log("Raycast");
+                    if (!hit.collider.CompareTag("Player"))
+                    {
+                        Debug.Log("Player tag hit");
+                        return true;
+                    }
+                }
             }
         }
 
