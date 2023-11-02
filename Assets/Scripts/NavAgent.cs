@@ -10,10 +10,14 @@ public class NavAgent : MonoBehaviour
     private NavMeshAgent navMeshAgent;
     public float DetRange = 10.0f;
     private Transform player;
+    
     public Material Detected;
     public Material NotDetected;
+    public GameObject searcher;
+
+    public Light SearchLight;
+    
     public bool Canwalk;
-    public LayerMask obstacleLayer;
    
     // Start is called before the first frame update
     void Start()
@@ -45,7 +49,8 @@ public class NavAgent : MonoBehaviour
         }
         navMeshAgent.SetDestination(waypoint[currentWaypoint].position);
         currentWaypoint = (currentWaypoint + 1) % waypoint.Length;
-        gameObject.GetComponent<MeshRenderer>().material = NotDetected;
+        searcher.GetComponent<MeshRenderer>().material = NotDetected;
+        SearchLight.color = Color.white;
 
     }
 
@@ -99,7 +104,8 @@ public class NavAgent : MonoBehaviour
         if (player != null)
         {
             navMeshAgent.SetDestination(player.position);
-            gameObject.GetComponent<MeshRenderer>().material = Detected;
+            searcher.GetComponent<MeshRenderer>().material = Detected;
+            SearchLight.color = Color.red;
         }
     }
 

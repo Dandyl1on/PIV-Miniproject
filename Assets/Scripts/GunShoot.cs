@@ -21,17 +21,18 @@ public class GunShoot : MonoBehaviour
     public GameObject Bullet;
     public float ShootForce;
     public int MagSize;
-    public bool allowButtonHold;
     public int bulletsLeft;
-    public bool shooting, reloading;
+    public bool reloading;
     public Transform GunPoint;
-
+    
     public TextMeshPro AmmoCount;
 
+    public Animator gun;
     private void Awake()
     {
         bulletsLeft = MagSize;
-        
+        //gun = GetComponent<Animator>();
+        //gun.SetBool("Reloading", false);
     }
 
     // Update is called once per frame
@@ -42,7 +43,7 @@ public class GunShoot : MonoBehaviour
         {
             Shoot();
         }
-        if (Input.GetButtonDown("Fire3") && bulletsLeft < MagSize && !reloading)
+        if (Input.GetKey(KeyCode.R) && bulletsLeft < MagSize && !reloading)
         {
             StartCoroutine(Reload());
             Debug.Log("Reload?");
@@ -53,28 +54,7 @@ public class GunShoot : MonoBehaviour
             AmmoCount.SetText(bulletsLeft +  " / " + MagSize);
         }
     }
-
-    private void MyInput()
-    {
-        if (allowButtonHold)
-        {
-            shooting = Input.GetKey(KeyCode.Mouse0);
-            
-        }
-        else
-        {
-            shooting = Input.GetKeyDown(KeyCode.Mouse0);
-        }
-
-        
-
-        if (shooting && !reloading && bulletsLeft <= 0 )
-        {
-            Reload();
-        }
-
-    }
-
+    
     public void Aim()
     {
         RaycastHit casting;
@@ -126,20 +106,18 @@ public class GunShoot : MonoBehaviour
             
         }
         
-
         bulletsLeft--;
-     
-        
-        }
+    }
 
   
     IEnumerator Reload()
     {
+        gun.SetBool("Reloading", true);
         Debug.Log("Reload?");
         reloading = true;
         yield return new WaitForSeconds(1);
         reloading = false;
         bulletsLeft = MagSize;
-
+        gun.SetBool("Reloading", false);
     }
 }
