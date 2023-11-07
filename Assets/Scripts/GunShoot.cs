@@ -16,7 +16,6 @@ public class GunShoot : MonoBehaviour
 
     public float ImpactForce = 30f;
 
-    public GameObject Corsair;
 
     public GameObject Bullet;
     public float ShootForce;
@@ -25,20 +24,18 @@ public class GunShoot : MonoBehaviour
     public bool reloading;
     public Transform GunPoint;
     
-    public TextMeshPro AmmoCount;
+    public TextMeshProUGUI AmmoCount;
 
     public Animator gun;
     private void Awake()
     {
         bulletsLeft = MagSize;
-        //gun = GetComponent<Animator>();
-        //gun.SetBool("Reloading", false);
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        Aim();
         if (Input.GetButtonDown("Fire1") && !reloading && bulletsLeft > 0)
         {
             Shoot();
@@ -55,15 +52,7 @@ public class GunShoot : MonoBehaviour
         }
     }
     
-    public void Aim()
-    {
-        RaycastHit casting;
-        if (Physics.Raycast(FPScam.transform.position, FPScam.transform.forward, out casting, Range))
-        {
-            Corsair.transform.position = casting.point + casting.normal * Corsair.transform.localScale.x/2f;
-        }
-    }
-    // ReSharper disable Unity.PerformanceAnalysis
+    
     public void Shoot()
     {
         Ray ray = FPScam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0.5f));
@@ -102,11 +91,11 @@ public class GunShoot : MonoBehaviour
             {
                 hit.rigidbody.AddForce(-hit.normal * ImpactForce);
             }
-
             
         }
         
         bulletsLeft--;
+        AmmoCount.SetText( "Ammo: " + bulletsLeft + "/5");
     }
 
   
