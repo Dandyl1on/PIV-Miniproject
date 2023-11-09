@@ -17,7 +17,7 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Dead();
+     
         if (timer >= 4)
         {
             Destroy(gameObject);
@@ -36,12 +36,5 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
             Debug.Log("destroyed?");
         }
-    }
-
-    private void Dead()
-    {
-        
-
-        
     }
 }

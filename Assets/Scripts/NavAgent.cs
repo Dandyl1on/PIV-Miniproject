@@ -86,7 +86,6 @@ public class NavAgent : MonoBehaviour
                         return false;
                     }
                     
-                    Debug.Log("Raycast");
                     if (hit.collider.CompareTag("Player"))
                     {
                         Debug.Log("Player tag hit");

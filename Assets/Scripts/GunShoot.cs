@@ -27,6 +27,9 @@ public class GunShoot : MonoBehaviour
     public TextMeshProUGUI AmmoCount;
 
     public Animator gun;
+
+    public ParticleSystem Flash;
+    public GameObject Impact;
     private void Awake()
     {
         bulletsLeft = MagSize;
@@ -55,44 +58,58 @@ public class GunShoot : MonoBehaviour
     
     public void Shoot()
     {
-        Ray ray = FPScam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0.5f));
-        RaycastHit hit;
-        Vector3 targetPoint;
-        if (Physics.Raycast(ray, out hit))
-        {
-            targetPoint = hit.point;
-        }
-        else
-        {
-            targetPoint = ray.GetPoint(50);
-        }
-
-        Vector3 directionWithoutSpread = targetPoint - GunPoint.position;
         
-
-
-        GameObject CurrentBullet = Instantiate(Bullet, GunPoint.position, quaternion.identity);
-        CurrentBullet.transform.forward = directionWithoutSpread.normalized;
-        
-        CurrentBullet.GetComponent<Rigidbody>().AddForce(directionWithoutSpread.normalized * ShootForce, ForceMode.Impulse);
-        
-        if (Physics.Raycast(FPScam.transform.position, FPScam.transform.forward, out hit, Range))
+        Flash.Play();
+        RaycastHit pew;
+        if (Physics.Raycast(GunPoint.position, transform.TransformDirection(Vector3.forward), out pew, 20))
         {
-            Debug.Log(hit.transform.name);
-            Target target = hit.transform.GetComponent<Target>();
-            
-            
+            Instantiate(Impact, pew.point, Quaternion.LookRotation(pew.normal));
+            Debug.Log("impact");
+
+            Target target = pew.transform.GetComponent<Target>();
+
             if (target != null)
             {
                 target.takeDamage(damage);
+                
             }
+            
+            Vector3 targetPoint;
+            Ray ray = FPScam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0.5f));
+            if (Physics.Raycast(ray, out pew))
+            {
+                targetPoint = pew.point;
+            }
+            else
+            {
+                targetPoint = ray.GetPoint(50);
+            }
+
+            Vector3 directionWithoutSpread = targetPoint - GunPoint.position;
+       
+            GameObject CurrentBullet = Instantiate(Bullet, GunPoint.position, quaternion.identity);
+            CurrentBullet.transform.forward = directionWithoutSpread.normalized;
+        
+            CurrentBullet.GetComponent<Rigidbody>().AddForce(directionWithoutSpread.normalized * ShootForce, ForceMode.Impulse);
+        }
+        
+        
+        
+        /*RaycastHit hit;
+        if (Physics.Raycast(FPScam.transform.position, FPScam.transform.forward, out hit, Range))
+        {
+            Debug.Log(hit.transform.name);
+            
+            
+            
 
             if (hit.rigidbody != null)
             {
                 hit.rigidbody.AddForce(-hit.normal * ImpactForce);
             }
-            
-        }
+
+
+        }*/
         
         bulletsLeft--;
         AmmoCount.SetText( "Ammo: " + bulletsLeft + "/5");
