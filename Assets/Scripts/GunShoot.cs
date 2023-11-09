@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 public class GunShoot : MonoBehaviour
 {
 
-    public int damage = 10;
+    public int damage;
 
     public float Range = 10f;
 
@@ -85,12 +85,12 @@ public class GunShoot : MonoBehaviour
                 targetPoint = ray.GetPoint(50);
             }
 
-            Vector3 directionWithoutSpread = targetPoint - GunPoint.position;
+          //  Vector3 directionWithoutSpread = targetPoint - GunPoint.position;
        
-            GameObject CurrentBullet = Instantiate(Bullet, GunPoint.position, quaternion.identity);
-            CurrentBullet.transform.forward = directionWithoutSpread.normalized;
+           // GameObject CurrentBullet = Instantiate(Bullet, GunPoint.position, quaternion.identity);
+           // CurrentBullet.transform.forward = directionWithoutSpread.normalized;
         
-            CurrentBullet.GetComponent<Rigidbody>().AddForce(directionWithoutSpread.normalized * ShootForce, ForceMode.Impulse);
+           // CurrentBullet.GetComponent<Rigidbody>().AddForce(directionWithoutSpread.normalized * ShootForce, ForceMode.Impulse);
         }
         
         
