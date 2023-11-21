@@ -9,6 +9,7 @@ public class NavAgent : MonoBehaviour
     private int currentWaypoint = 0;
     private NavMeshAgent navMeshAgent;
     public float DetRange = 10.0f;
+    private float stopRange = 4.0f;
     private Transform player;
     
     public Material Detected;
@@ -18,6 +19,8 @@ public class NavAgent : MonoBehaviour
     public Light SearchLight;
     
     public bool Canwalk;
+
+    public GameObject PlayerSlider;
    
     // Start is called before the first frame update
     void Start()
@@ -102,9 +105,21 @@ public class NavAgent : MonoBehaviour
     {
         if (player != null)
         {
-            navMeshAgent.SetDestination(player.position);
-            searcher.GetComponent<MeshRenderer>().material = Detected;
-            SearchLight.color = Color.red;
+            float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+            if (distanceToPlayer >= stopRange)
+            {
+                Debug.Log(distanceToPlayer);
+                navMeshAgent.SetDestination(player.position);
+                searcher.GetComponent<MeshRenderer>().material = Detected;
+                SearchLight.color = Color.red;
+                PlayerSlider.GetComponent<HealthCon>().TakeDamage(10); 
+            }
+            else
+            {
+                navMeshAgent.ResetPath();
+                PlayerSlider.GetComponent<HealthCon>().TakeDamage(10); 
+            }
+            
         }
     }
 

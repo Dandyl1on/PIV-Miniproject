@@ -110,13 +110,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1589749869120173662}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0011398437, y: -0.9948443, z: 0.100781895, w: 0.011251696}
-  m_LocalPosition: {x: -0.05, y: 0.17, z: 1.13}
+  m_LocalRotation: {x: 0.0023799697, y: -0.9775435, z: 0.2104305, w: 0.0110560255}
+  m_LocalPosition: {x: -0.049998887, y: 0.17000036, z: 1.1299961}
   m_LocalScale: {x: 2.4929829, y: 2.5613995, z: 7.0276346}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8041576205449207289}
-  m_LocalEulerAnglesHint: {x: 11.569, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 24.297, y: -178.704, z: 0}
 --- !u!108 &2829996320853224280
 Light:
   m_ObjectHideFlags: 0
@@ -362,7 +362,7 @@ Transform:
   m_GameObject: {fileID: 6196380430156944844}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.9999361, z: 0, w: 0.011309683}
-  m_LocalPosition: {x: -18.79, y: 2.54, z: 11.02}
+  m_LocalPosition: {x: -18.79, y: 2.6, z: 11.02}
   m_LocalScale: {x: 1.0473744, y: 1.0473744, z: 1.0473744}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1715,11 +1715,13 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   DetRange: 10
+  stopRange: 7
   Detected: {fileID: 2100000, guid: 6b39ddb144945f5458fb93381ad5fe25, type: 2}
   NotDetected: {fileID: 2100000, guid: 186b7405359ee204bbde85d08e450bd4, type: 2}
   searcher: {fileID: 223369872049789498}
   SearchLight: {fileID: 2829996320853224280}
   Canwalk: 1
+  PlayerSlider: {fileID: 0}
 --- !u!114 &8559162512772694212
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -8412,7 +8412,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 393826184}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8420,7 +8420,7 @@ RectTransform:
   - {fileID: 642574889}
   - {fileID: 861145766}
   - {fileID: 1672107485}
-  m_Father: {fileID: 1397127269}
+  m_Father: {fileID: 774478527}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -23330,6 +23330,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 221769471}
     - target: {fileID: 8751171355523141421, guid: 3ecaf7f15f5097141b366e325ab0fa81, type: 3}
+      propertyPath: stopRange
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8751171355523141421, guid: 3ecaf7f15f5097141b366e325ab0fa81, type: 3}
       propertyPath: NotDetected
       value: 
       objectReference: {fileID: 2100000, guid: 186b7405359ee204bbde85d08e450bd4, type: 2}
@@ -23337,6 +23341,10 @@ PrefabInstance:
       propertyPath: SearchLight
       value: 
       objectReference: {fileID: 1167282739}
+    - target: {fileID: 8751171355523141421, guid: 3ecaf7f15f5097141b366e325ab0fa81, type: 3}
+      propertyPath: PlayerSlider
+      value: 
+      objectReference: {fileID: 393826184}
     - target: {fileID: 8751171355523141421, guid: 3ecaf7f15f5097141b366e325ab0fa81, type: 3}
       propertyPath: waypoint.Array.size
       value: 3
@@ -23557,7 +23565,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 393826185}
   m_Father: {fileID: 1397127269}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
@@ -29032,6 +29041,14 @@ PrefabInstance:
       value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8751171355523141421, guid: 3ecaf7f15f5097141b366e325ab0fa81, type: 3}
+      propertyPath: stopRange
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8751171355523141421, guid: 3ecaf7f15f5097141b366e325ab0fa81, type: 3}
+      propertyPath: PlayerSlider
+      value: 
+      objectReference: {fileID: 393826184}
+    - target: {fileID: 8751171355523141421, guid: 3ecaf7f15f5097141b366e325ab0fa81, type: 3}
       propertyPath: waypoint.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -32457,7 +32474,6 @@ RectTransform:
   - {fileID: 1138905655}
   - {fileID: 1128089702}
   - {fileID: 774478527}
-  - {fileID: 393826185}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -35751,6 +35767,14 @@ PrefabInstance:
       propertyPath: Health
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 8751171355523141421, guid: 3ecaf7f15f5097141b366e325ab0fa81, type: 3}
+      propertyPath: stopRange
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8751171355523141421, guid: 3ecaf7f15f5097141b366e325ab0fa81, type: 3}
+      propertyPath: PlayerSlider
+      value: 
+      objectReference: {fileID: 393826184}
     - target: {fileID: 8751171355523141421, guid: 3ecaf7f15f5097141b366e325ab0fa81, type: 3}
       propertyPath: waypoint.Array.data[0]
       value: 
