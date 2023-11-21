@@ -25,7 +25,12 @@ public class GunShoot : MonoBehaviour
     public Animator gun;
 
     public ParticleSystem Flash;
-    public ParticleSystem Impact;
+    public ParticleSystem Glow;
+    public ParticleSystem Sparks;
+    public GameObject Impact;
+    
+    public float delay = 1.0f;
+
     private void Awake()
     {
         bulletsLeft = MagSize;
@@ -56,14 +61,20 @@ public class GunShoot : MonoBehaviour
     {
         
         Flash.Play();
+        Glow.Play();
+        Sparks.Play();
         RaycastHit pew;
         if (Physics.Raycast(GunPoint.position, transform.TransformDirection(Vector3.forward), out pew, 20))
         {
             
-            Impact.Play();
-            //Instantiate(Impact, pew.point, Quaternion.LookRotation(pew.normal));
+            //Impact.Play();
+            Instantiate(Impact, pew.point, Quaternion.LookRotation(pew.normal));
             Debug.Log("impact");
-            //DestroyImmediate(Impact, true);
+            delay -= Time.deltaTime;
+            if (delay < 0f)
+            {
+                DestroyImmediate(Impact, true);
+            }
 
             Target target = pew.transform.GetComponent<Target>();
 
