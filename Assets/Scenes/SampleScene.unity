@@ -4809,6 +4809,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 80.288, z: 0}
+--- !u!198 &251052155 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1753092266661319817, guid: 98c98740db0069e408185f720cc4fa2e, type: 3}
+  m_PrefabInstance: {fileID: 1676662321}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &282197876
 Mesh:
   m_ObjectHideFlags: 0
@@ -33513,7 +33518,7 @@ PrefabInstance:
     - target: {fileID: 4959343455674858056, guid: 98c98740db0069e408185f720cc4fa2e, type: 3}
       propertyPath: Flash
       value: 
-      objectReference: {fileID: 1863966698}
+      objectReference: {fileID: 251052155}
     - target: {fileID: 4959343455674858056, guid: 98c98740db0069e408185f720cc4fa2e, type: 3}
       propertyPath: FPScam
       value: 
@@ -35953,11 +35958,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!198 &1863966698 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 8153944166539010458, guid: 98c98740db0069e408185f720cc4fa2e, type: 3}
-  m_PrefabInstance: {fileID: 1676662321}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1878387060
 GameObject:
   m_ObjectHideFlags: 0

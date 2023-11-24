@@ -71,10 +71,10 @@ public class GunShoot : MonoBehaviour
             Instantiate(Impact, pew.point, Quaternion.LookRotation(pew.normal));
             Debug.Log("impact");
             delay -= Time.deltaTime;
-            if (delay < 0f)
+            /*if (delay < 0f)
             {
                 DestroyImmediate(Impact, true);
-            }
+            }*/
 
             Target target = pew.transform.GetComponent<Target>();
 
