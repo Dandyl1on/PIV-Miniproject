@@ -47,7 +47,6 @@ public class GunShoot : MonoBehaviour
         if (Input.GetKey(KeyCode.R) && bulletsLeft < MagSize && !reloading)
         {
             StartCoroutine(Reload());
-            Debug.Log("Reload?");
         }
         
         if (AmmoCount != null)
@@ -69,7 +68,6 @@ public class GunShoot : MonoBehaviour
             
             //Impact.Play();
             Instantiate(Impact, pew.point, Quaternion.LookRotation(pew.normal));
-            Debug.Log("impact");
             delay -= Time.deltaTime;
             
             Target target = pew.transform.GetComponent<Target>();
@@ -102,7 +100,6 @@ public class GunShoot : MonoBehaviour
     IEnumerator Reload()
     {
         gun.SetBool("Reloading", true);
-        Debug.Log("Reload?");
         reloading = true;
         yield return new WaitForSeconds(1);
         reloading = false;

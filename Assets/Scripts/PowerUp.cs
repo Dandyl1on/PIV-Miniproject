@@ -28,17 +28,13 @@ public class PowerUp : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player") && Mag)
         {
-            Debug.Log("Magsize");
             Gun.GetComponent<GunShoot>().MagSize++;
             Destroy(gameObject);
         }
 
         if (other.gameObject.CompareTag("Player") && Health)
         {
-            Debug.Log("Health");
-            Debug.Log(HealthSlider.GetComponent<HealthCon>().health);
             HealthSlider.GetComponent<HealthCon>().health += 10;
-            Debug.Log(HealthSlider.GetComponent<HealthCon>().health);
             Destroy(gameObject);
         }
 

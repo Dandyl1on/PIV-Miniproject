@@ -36,7 +36,6 @@ public class NavAgent : MonoBehaviour
         if (IsPlayerInFront() && PlayerInRange())
         {
             ChasePlayer();
-            Debug.Log("Chase");
         }
         else if (Canwalk && !navMeshAgent.pathPending && navMeshAgent.remainingDistance < 0.5f)
         {
@@ -63,7 +62,6 @@ public class NavAgent : MonoBehaviour
     {
         if (player != null)
         {
-            Debug.Log("PlayerInRange");
             float DisToPlayer = Vector3.Distance(transform.position, player.position);
             return DisToPlayer <= DetRange;
         }
@@ -81,7 +79,6 @@ public class NavAgent : MonoBehaviour
             if (angleToPlayer <= 45f)
             {
                 RaycastHit hit;
-                Debug.DrawRay(transform.position, directionToPlayer, Color.green);
                 if (Physics.Raycast(transform.position, directionToPlayer, out hit, DetRange))
                 {
                     if (hit.collider.CompareTag("Ground"))
@@ -91,7 +88,6 @@ public class NavAgent : MonoBehaviour
                     
                     if (hit.collider.CompareTag("Player"))
                     {
-                        Debug.Log("Player tag hit");
                         return true;
                     }
                 }
@@ -108,7 +104,6 @@ public class NavAgent : MonoBehaviour
             float distanceToPlayer = Vector3.Distance(transform.position, player.position);
             if (distanceToPlayer >= stopRange)
             {
-                Debug.Log(distanceToPlayer);
                 navMeshAgent.SetDestination(player.position);
                 searcher.GetComponent<MeshRenderer>().material = Detected;
                 SearchLight.color = Color.red;
