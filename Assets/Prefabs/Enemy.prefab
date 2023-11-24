@@ -1715,8 +1715,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   DetRange: 10
-  stopRange: 7
-  Detected: {fileID: 2100000, guid: 6b39ddb144945f5458fb93381ad5fe25, type: 2}
+  Detected: {fileID: 2100000, guid: 0c2605e1589faa64690818a3ee117a9c, type: 2}
   NotDetected: {fileID: 2100000, guid: 186b7405359ee204bbde85d08e450bd4, type: 2}
   searcher: {fileID: 223369872049789498}
   SearchLight: {fileID: 2829996320853224280}
